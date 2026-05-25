@@ -1,19 +1,3 @@
-import os
-from flask import Flask
-from threading import Thread
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Bot is running!"
-
-def run_flask():
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
-# Запускаем Flask в отдельном потоке
-Thread(target=run_flask).start()
 """
 Telegram-бот для расчёта стоимости доставки — PackPoint СПб
 Стек: Python 3.10+, aiogram 3.x
@@ -524,9 +508,27 @@ async def get_phone(message: Message, state: FSMContext):
     await state.clear()
 
 
-# ─── Запуск ───────────────────────────────────────────────────────────────────
+# ========== ЗАПУСК FLASK (ДЛЯ RENDER) И БОТА ==========
+import os
+from flask import Flask
+from threading import Thread
+
+flask_app = Flask(__name__)
+
+@flask_app.route('/')
+def health():
+    return "Bot is running"
+
+def run_flask():
+    port = int(os.environ.get('PORT', 5000))
+    flask_app.run(host='0.0.0.0', port=port)
+
 async def main():
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
+    # Запускаем Flask в фоновом потоке
+    Thread(target=run_flask, daemon=True).start()
+    # Запускаем бота в основном потоке
+    import asyncio
     asyncio.run(main())
