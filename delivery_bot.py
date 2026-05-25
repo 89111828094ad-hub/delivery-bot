@@ -317,6 +317,7 @@ async def _back_to_name(message, state):
 async def cmd_start(message: Message, state: FSMContext):
     await state.clear()
     await message.answer(
+        "Наш Бот засыпает после долго бездействи. Бот проснётся после Вашего сообщения, но ответ может прийти с задержкой до 50 сек. Извините за неудобства.\n\n"
         "👋 Добро пожаловать в сервис расчёта доставки!\n\n"
         f"📍 Наш склад: {WAREHOUSE_ADDRESS}\n"
         f"{MANAGER_CONTACT}\n\n"
