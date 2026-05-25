@@ -32,7 +32,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 
 # ─── Настройки ────────────────────────────────────────────────────────────────
-BOT_TOKEN = "8969496219:AAHQnLwzz6IwMI2DZP9DmHs5qdBRr8yVIXU"
+BOT_TOKEN = "8969496219:AAH6XiTaldhNgIVyOZrQKThVoIM1IpWLcwM"
 MANAGER_CHAT_ID = 898299896
 
 WAREHOUSE_ADDRESS = "Санкт-Петербург, ул. Профессора Качалова 8И"
