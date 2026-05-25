@@ -1,3 +1,19 @@
+import os
+from flask import Flask
+from threading import Thread
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+def run_flask():
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+
+# Запускаем Flask в отдельном потоке
+Thread(target=run_flask).start()
 """
 Telegram-бот для расчёта стоимости доставки — PackPoint СПб
 Стек: Python 3.10+, aiogram 3.x
