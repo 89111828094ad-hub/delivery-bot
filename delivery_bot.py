@@ -33,8 +33,11 @@ from aiogram.fsm.storage.memory import MemoryStorage
 
 # ─── Настройки ────────────────────────────────────────────────────────────────
 BOT_TOKEN = "8969496219:AAHQnLwzz6IwMI2DZP9DmHs5qdBRr8yVIXU"
-MANAGER_CHAT_ID = 898299896
-MANAGER_CHAT_ID = 5228371720
+# --- СПИСОК ПОЛУЧАТЕЛЕЙ (укажите ID нужных людей) ---
+RECIPIENTS = [
+    898299896,   # ID первого получателя (ваш)
+    5228371720,   # ID второго получателя (другой человек)
+]
 
 WAREHOUSE_ADDRESS = "Санкт-Петербург, ул. Профессора Качалова 8И"
 MANAGER_CONTACT = "📞 +7 966 860 08 11 (Никита)"
